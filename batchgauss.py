@@ -62,32 +62,3 @@ def sample(means, covs, rng=None):
     x = rng.standard_normal((N, M))
     samples = (L @ x[..., None]).squeeze() + means
     return samples
-
-
-if __name__ == "__main__":
-
-    N = 1000
-    N_dim = 2
-    
-    rng = np.random.default_rng(42)
-    
-    means = np.zeros((N, N_dim))
-    covs = np.zeros((N, N_dim, N_dim))
-    
-    means[:500, 1] = -5
-    means[500:, 1] = 5
-    covs[:, 0, 0] = 1
-    covs[:, 1, 1] = 1
-    covs[:500, 0, 1] = 0.5
-    covs[:500, 1, 0] = 0.5
-    covs[500:, 0, 1] = -0.5
-    covs[500:, 1, 0] = -0.5
-    
-    y = sample(means, covs)
-# =============================================================================
-#     for i in range(N):
-#         x = rng.normal(size=(10, N_dim))
-#         means[i] = np.mean(x, axis=0)
-#         covs[i] = np.cov(x.T)
-# 
-# =============================================================================
