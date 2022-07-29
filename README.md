@@ -29,6 +29,8 @@ covs[500:, 1, 0] = -0.5
 # draw samples
 y = sample(means, covs)
 ```
+This will generate samples in two blobs, a positively tilted blob at (0, -5) and a negatively tilted one at (0, 5).
+
 See the function docstring for more details.
 
 ## Prerequisites
